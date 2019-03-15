@@ -46,16 +46,13 @@
 		</tr>
 		<tr>
 			<?php 
-			// echo '<pre>';
-			// print_r($car->get() );
-			// echo '</pre>';
 			$result = [];
 			foreach ($car->get($year) as $u) {
 				$result[$u['car_id']][$u['year']] = $u['price'];
 			}
-			echo '<pre>';
-			print_r($result );
-			echo '</pre>';
+			// echo '<pre>';
+			// print_r($result );
+			// echo '</pre>';
 			?>
 		</tr>
 		<?php
@@ -75,7 +72,8 @@
 		$(document).ready(function(){     
 			$('#submit').click(function(){
 				if(($('#year').val()) == ''){
-					alert('please specify the price year');
+					$("#errmsg").html("please specify the price year").show().delay(5000).fadeOut();
+			        return false;
 				}
 			});
 
